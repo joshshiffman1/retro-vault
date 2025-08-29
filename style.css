@@ -2,6 +2,8 @@ body {
   background-color: #000;
   margin: 0;
   height: 100vh;
+  overflow: hidden; /* Prevent scrollbars during animation */
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,4 +16,45 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
+  z-index: 10;
+  position: relative;
+}
+
+/* Bull animation */
+.running-bull {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: runAround 12s linear infinite;
+  z-index: 5;
+}
+
+@keyframes runAround {
+  0% {
+    top: 0;
+    left: 0;
+    transform: scaleX(1);
+  }
+  25% {
+    top: 0;
+    left: calc(100vw - 48px);
+    transform: scaleX(-1);
+  }
+  50% {
+    top: calc(100vh - 48px);
+    left: calc(100vw - 48px);
+    transform: scaleX(-1);
+  }
+  75% {
+    top: calc(100vh - 48px);
+    left: 0;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0;
+    left: 0;
+    transform: scaleX(1);
+  }
 }
